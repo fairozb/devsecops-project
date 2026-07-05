@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+venv/
+.venv/
+env/
+.python-version
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+test-results.xml
+coverage.xml
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment variables (NEVER commit secrets)
+.env
+.env.*
+*.env
+!.env.example
+
+# Terraform
+infrastructure/terraform/.terraform/
+infrastructure/terraform/*.tfstate
+infrastructure/terraform/*.tfstate.backup
+infrastructure/terraform/.terraform.lock.hcl
+infrastructure/terraform/crash.log
+
+# Security scan reports (generated)
+security/bandit-report.json
+security/safety-report.json
+security/trivy-results.sarif
+security/checkov-results.sarif
+
+# Docker
+*.tar
+
+# Logs
+*.log
+logs/
+
+# Distribution
+*.whl

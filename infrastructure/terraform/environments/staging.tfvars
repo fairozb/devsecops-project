@@ -1,0 +1,9 @@
+aws_region        = "us-east-1"
+project_name      = "devsecops"
+environment       = "staging"
+vpc_cidr          = "10.0.0.0/16"
+container_image   = "ghcr.io/fairozb/devsecops-app:latest"
+container_port    = 8000
+ecs_cpu           = 256
+ecs_memory        = 512
+ecs_desired_count = 1

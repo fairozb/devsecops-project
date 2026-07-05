@@ -1,0 +1,13 @@
+directory:
+  - infrastructure/terraform/
+
+framework:
+  - terraform
+
+soft-fail: false
+compact: true
+download-external-modules: true
+
+output:
+  - cli
+  - json

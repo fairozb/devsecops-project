@@ -1,0 +1,9 @@
+aws_region        = "us-east-1"
+project_name      = "devsecops"
+environment       = "production"
+vpc_cidr          = "10.1.0.0/16"
+container_image   = "ghcr.io/fairozb/devsecops-app:stable"
+container_port    = 8000
+ecs_cpu           = 512
+ecs_memory        = 1024
+ecs_desired_count = 3

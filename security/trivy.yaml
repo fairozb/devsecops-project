@@ -1,0 +1,25 @@
+severity:
+  - CRITICAL
+  - HIGH
+  - MEDIUM
+
+vulnerability:
+  type:
+    - os
+    - library
+
+scan:
+  skip-dirs:
+    - node_modules
+    - .git
+    - tests
+    - docs
+
+  security-checks:
+    - vuln
+    - config
+    - secret
+
+ignore-unfixed: false
+format: table
+exit-code: 1

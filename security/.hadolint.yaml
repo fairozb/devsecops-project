@@ -1,0 +1,14 @@
+failure-threshold: warning
+
+override:
+  warning:
+    - DL3042
+
+trustedRegistries:
+  - docker.io
+  - gcr.io
+  - ghcr.io
+
+label-schema:
+  maintainer: text
+  org.opencontainers.image.source: url

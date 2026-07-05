@@ -1,0 +1,31 @@
+title = "DevSecOps Project Gitleaks Configuration"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "custom-api-key"
+description = "Custom API Key Pattern"
+regex = '''(?i)(api[_-]?key|apikey)\s*[=:]\s*['"]?([a-zA-Z0-9]{32,})['"]?'''
+tags = ["key", "api"]
+
+[[rules]]
+id = "custom-database-url"
+description = "Database Connection String"
+regex = '''(?i)(postgres|mysql|mongodb|redis):\/\/[^:\s]+:[^@\s]+@[^\s]+'''
+tags = ["database", "connection"]
+
+[[rules]]
+id = "custom-jwt-secret"
+description = "JWT Secret"
+regex = '''(?i)(jwt[_-]?secret|jwt[_-]?key)\s*[=:]\s*['"]?([a-zA-Z0-9+/=]{16,})['"]?'''
+tags = ["jwt", "secret"]
+
+[allowlist]
+description = "Global allowlist"
+paths = [
+    '''(.*?)test(.*?)''',
+    '''\.gitleaks\.toml''',
+    '''requirements.*\.txt''',
+    '''docs/.*\.md''',
+]
