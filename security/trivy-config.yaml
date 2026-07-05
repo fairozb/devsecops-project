@@ -1,0 +1,38 @@
+# Trivy Scanner Configuration for DevSecOps Pipeline
+# Used in Jenkins pipeline for container image scanning
+
+# Severity levels to scan
+severity:
+  - CRITICAL
+  - HIGH
+
+# Vulnerability types
+vulnerability:
+  type:
+    - os
+    - library
+
+# Scan options
+scan:
+  security-checks:
+    - vuln
+    - config
+    - secret
+
+  # Skip directories not relevant to production
+  skip-dirs:
+    - /usr/local/tomcat/webapps/docs
+    - /usr/local/tomcat/webapps/examples
+    - /usr/local/tomcat/webapps/host-manager
+
+# Ignore unfixed vulnerabilities
+ignore-unfixed: false
+
+# Exit code (1 = fail pipeline on findings)
+exit-code: 1
+
+# Output format for Jenkins
+format: table
+
+# Timeout for scan
+timeout: 10m

@@ -1,61 +1,46 @@
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-*.egg-info/
-*.egg
-dist/
-build/
-.eggs/
-venv/
-.venv/
-env/
-.python-version
-
-# Testing
-.pytest_cache/
-.coverage
-htmlcov/
-test-results.xml
-coverage.xml
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
+!.mvn/wrapper/maven-wrapper.jar
 
 # IDE
-.vscode/
 .idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
 *.swp
 *.swo
 *~
+.factorypath
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Environment variables (NEVER commit secrets)
+# Environment
 .env
-.env.*
 *.env
-!.env.example
-
-# Terraform
-infrastructure/terraform/.terraform/
-infrastructure/terraform/*.tfstate
-infrastructure/terraform/*.tfstate.backup
-infrastructure/terraform/.terraform.lock.hcl
-infrastructure/terraform/crash.log
-
-# Security scan reports (generated)
-security/bandit-report.json
-security/safety-report.json
-security/trivy-results.sarif
-security/checkov-results.sarif
-
-# Docker
-*.tar
 
 # Logs
 *.log
 logs/
 
-# Distribution
-*.whl
+# Dependency Check
+dependency-check-report.*
+
+# Coverage
+jacoco.exec
+
+# Security scan reports (generated)
+security/reports/
+trivy-report.*
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
