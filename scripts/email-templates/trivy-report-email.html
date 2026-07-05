@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Trivy Security Report</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        
+        <!-- Header -->
+        <div style="background-color: #17a2b8; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Trivy Security Scan Report</h1>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding: 30px;">
+            <h2 style="color: #333; margin-top: 0;">Image: ${DOCKER_IMAGE}:${DOCKER_TAG}</h2>
+            
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Scan Date:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${SCAN_DATE}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Build:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">#${BUILD_NUMBER}</td>
+                </tr>
+            </table>
+
+            <h3 style="color: #333;">Vulnerability Summary:</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 10px; text-align: left; border: 1px solid #dee2e6;">Severity</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Count</th>
+                    <th style="padding: 10px; text-align: center; border: 1px solid #dee2e6;">Status</th>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; color: #dc3545; font-weight: bold;">CRITICAL</td>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; text-align: center;">${CRITICAL_COUNT}</td>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; text-align: center;">${CRITICAL_STATUS}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; color: #fd7e14; font-weight: bold;">HIGH</td>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; text-align: center;">${HIGH_COUNT}</td>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; text-align: center;">${HIGH_STATUS}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; color: #ffc107; font-weight: bold;">MEDIUM</td>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; text-align: center;">${MEDIUM_COUNT}</td>
+                    <td style="padding: 10px; border: 1px solid #dee2e6; text-align: center;">${MEDIUM_STATUS}</td>
+                </tr>
+            </table>
+
+            <p style="color: #666; font-size: 13px;">Full Trivy report is attached to this email. Review and remediate any critical/high vulnerabilities before production deployment.</p>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="${BUILD_URL}" style="background-color: #17a2b8; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">View Full Report</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background-color: #f8f9fa; padding: 15px; text-align: center; font-size: 12px; color: #666;">
+            <p style="margin: 0;">DevSecOps CI/CD Pipeline - Trivy Security Scanner</p>
+        </div>
+    </div>
+</body>
+</html>

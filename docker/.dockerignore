@@ -1,29 +1,30 @@
+# Version control
 .git
 .gitignore
-__pycache__
-*.pyc
-*.pyo
-*.egg-info
-.eggs
-dist
-build
-venv
-.venv
-.pytest_cache
-.coverage
-htmlcov
-.vscode
+
+# IDE
 .idea
+*.iml
+.vscode
 *.swp
-*.swo
-.env
-.env.*
-*.env
+
+# Build output (we rebuild inside Docker)
+target/
+
+# CI/CD
+Jenkinsfile
+kubernetes/
+scripts/
 docs/
-*.md
-.github/
-security/
-infrastructure/
-tests/
+
+# Environment
+.env
+*.env
+
+# OS files
 .DS_Store
 Thumbs.db
+
+# Logs
+*.log
+logs/

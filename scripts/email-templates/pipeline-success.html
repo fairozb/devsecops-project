@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pipeline Success</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        
+        <!-- Header -->
+        <div style="background-color: #28a745; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Pipeline SUCCESS</h1>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding: 30px;">
+            <h2 style="color: #333; margin-top: 0;">Build #${BUILD_NUMBER} - ${JOB_NAME}</h2>
+            
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; width: 140px;">Status:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; color: #28a745; font-weight: bold;">SUCCESS</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Job Name:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${JOB_NAME}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Build Number:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">#${BUILD_NUMBER}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Duration:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${BUILD_DURATION}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Triggered By:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${BUILD_USER}</td>
+                </tr>
+            </table>
+
+            <!-- Pipeline Stages -->
+            <h3 style="color: #333;">Pipeline Stages Completed:</h3>
+            <div style="margin: 10px 0;">
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Clean Workspace</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Git Checkout</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Maven Compile</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Maven Test</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">SonarQube</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Quality Gate</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Maven Build</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">OWASP Check</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Docker Build</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Trivy Scan</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Deploy Tomcat</span>
+                <span style="display: inline-block; background: #28a745; color: white; padding: 4px 8px; border-radius: 4px; margin: 2px; font-size: 12px;">Deploy K8s</span>
+            </div>
+
+            <!-- Security Summary -->
+            <h3 style="color: #333;">Security Scan Summary:</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 10px 0;">
+                <tr style="background: #f8f9fa;">
+                    <th style="padding: 8px; text-align: left; border: 1px solid #dee2e6;">Tool</th>
+                    <th style="padding: 8px; text-align: left; border: 1px solid #dee2e6;">Status</th>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #dee2e6;">SonarQube Analysis</td>
+                    <td style="padding: 8px; border: 1px solid #dee2e6; color: #28a745;">PASSED</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #dee2e6;">OWASP Dependency Check</td>
+                    <td style="padding: 8px; border: 1px solid #dee2e6; color: #28a745;">PASSED</td>
+                </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #dee2e6;">Trivy Image Scan</td>
+                    <td style="padding: 8px; border: 1px solid #dee2e6; color: #28a745;">PASSED</td>
+                </tr>
+            </table>
+
+            <!-- Action Button -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="${BUILD_URL}" style="background-color: #28a745; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold;">View Build Details</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background-color: #f8f9fa; padding: 15px; text-align: center; font-size: 12px; color: #666;">
+            <p style="margin: 0;">DevSecOps CI/CD Pipeline - Jenkins Automated Notification</p>
+            <p style="margin: 5px 0 0 0;">Build URL: ${BUILD_URL}</p>
+        </div>
+    </div>
+</body>
+</html>

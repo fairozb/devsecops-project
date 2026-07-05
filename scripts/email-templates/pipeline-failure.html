@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Pipeline Failure</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 20px; background-color: #f5f5f5;">
+    <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        
+        <!-- Header -->
+        <div style="background-color: #dc3545; padding: 20px; text-align: center;">
+            <h1 style="color: #ffffff; margin: 0; font-size: 24px;">Pipeline FAILED</h1>
+        </div>
+        
+        <!-- Content -->
+        <div style="padding: 30px;">
+            <h2 style="color: #333; margin-top: 0;">Build #${BUILD_NUMBER} - ${JOB_NAME}</h2>
+            
+            <div style="background-color: #f8d7da; border: 1px solid #f5c6cb; border-radius: 4px; padding: 15px; margin: 15px 0;">
+                <strong style="color: #721c24;">Action Required:</strong>
+                <p style="color: #721c24; margin: 5px 0 0 0;">The pipeline has failed. Please review the build logs and fix the issue.</p>
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold; width: 140px;">Status:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; color: #dc3545; font-weight: bold;">FAILURE</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Job Name:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${JOB_NAME}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Build Number:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">#${BUILD_NUMBER}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Failed Stage:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; color: #dc3545;">${FAILED_STAGE}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Duration:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${BUILD_DURATION}</td>
+                </tr>
+                <tr>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee; font-weight: bold;">Triggered By:</td>
+                    <td style="padding: 10px; border-bottom: 1px solid #eee;">${BUILD_USER}</td>
+                </tr>
+            </table>
+
+            <!-- Possible Causes -->
+            <h3 style="color: #333;">Common Causes:</h3>
+            <ul style="color: #555; line-height: 1.8;">
+                <li>Compilation errors in source code</li>
+                <li>Unit test failures</li>
+                <li>SonarQube Quality Gate not passed</li>
+                <li>Critical vulnerabilities found by OWASP/Trivy</li>
+                <li>Docker build failure</li>
+                <li>Kubernetes deployment timeout</li>
+                <li>Network/connectivity issues</li>
+            </ul>
+
+            <!-- Action Buttons -->
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="${BUILD_URL}console" style="background-color: #dc3545; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 5px;">View Console Log</a>
+                <a href="${BUILD_URL}" style="background-color: #6c757d; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 5px;">Build Details</a>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div style="background-color: #f8f9fa; padding: 15px; text-align: center; font-size: 12px; color: #666;">
+            <p style="margin: 0;">DevSecOps CI/CD Pipeline - Jenkins Automated Notification</p>
+            <p style="margin: 5px 0 0 0;">Build URL: ${BUILD_URL}</p>
+        </div>
+    </div>
+</body>
+</html>
